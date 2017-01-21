@@ -1,0 +1,134 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[english,greek]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{bm}
+
+\usepackage{libertine}
+\usepackage{inconsolata}
+
+\usepackage{csquotes}
+\usepackage[backend=biber, bibencoding=auto, autolang=other]{biblatex}
+\addbibresource{bible.bib}
+
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[hidelinks,unicode]{hyperref}
+
+\usepackage{tabulary}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\listalgorithmname}{\tl{List of Algorithms}}
+
+\usepackage{geometry}
+\headsep=30pt
+\footskip = 40pt
+
+\usepackage{setspace}
+\onehalfspacing  %One_And_a_Half
+\usepackage{parskip}  %Paragraph_Indentation-Spacing
+\parskip=11pt \advance\parskip by -1pt plus 3pt
+
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}   %New_Chapter
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}   %New_Section
+
+\pagestyle{headings}
+
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{20pt}{5pt}
+\titlespacing{\subsection}{0pt}{15pt}{0pt}
+
+\usepackage[small,bf]{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+
+\newcommand{\clearemptydoublepage}{\cleardoublepage \thispagestyle{plain}}
+\newcommand{\clearemptypage}{\clearpage \thispagestyle{plain}} %change chapter(page style plain)
+
+\newcommand{\vc}[1]{\bm{#1}} % this is a vector
+\newcommand{\mt}[1]{\boldsymbol{#1}} % this is a matrix
+
+\newcommand{\tl}[1]{\textlatin{#1}}
+\newcommand{\gr}[1]{\greektext{#1}}
+\newcommand{\greek}[1]{{\selectlanguage{greek}#1}}
+\newcommand{\eng}[1]{{\selectlanguage{english}#1}}
+
+\newcommand{\mono}[1]{\tl{\texttt{#1}}}
+\newcommand{\xn}{x^{(\nu)}}
+
+\begin{document}
+\include{cover}
+\clearemptypage
+
+\titleformat{\chapter}[display]{\normalsize}{}
+{}{ \bf\Huge }[\vspace{10pt}]
+
+\tableofcontents
+\clearemptypage
+
+\listoffigures
+\clearemptypage
+
+\titleformat{\chapter}[display]{}{\titlerule[2.0pt]\vspace{5pt}\titlerule[0.5pt]\vspace{-8pt}
+\LARGE{Κεφάλαιο} \bfseries\Huge\thechapter}
+{10pt}{\titlerule[0.5pt] \vspace{20pt} \bf\huge }[\vspace{0pt}]
+
+\include{chapters/intro}
+\clearemptypage
+
+\include{chapters/lp}
+\clearemptypage
+
+\include{chapters/qp}
+\clearemptypage
+
+\include{chapters/convex_sets}
+\clearemptypage
+
+\include{chapters/ip}
+\clearemptypage
+
+\include{chapters/lmi}
+\clearemptypage
+
+\include{chapters/evaluation}
+\clearemptypage
+
+\titleformat{\chapter}[display]{\normalsize}{}
+{}{ \bf\Huge }[\vspace{10pt}]
+
+\addcontentsline{toc}{chapter}{\numberline{}Βιβλιογραφία}
+\selectlanguage{english}
+\printbibliography[title=\greektext{Βιβλιογραφία}]
+\clearemptypage
+
+\end{document}
